@@ -41,6 +41,5 @@ jobs:
           username: ${{ secrets.HETZNER_USER }}
           key: ${{ secrets.HETZNER_SSH_KEY }}
           script: |
-            cd /path/to/your/app
             docker-compose pull
             docker-compose up -d
