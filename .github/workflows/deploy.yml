@@ -31,7 +31,6 @@ jobs:
           docker buildx build \
           --build-arg DATABASE_CLIENT=sqlite \
           --build-arg DATABASE_FILENAME=.tmp/data.db \
-          --build-arg HOST=0.0.0.0 \
           --build-arg PORT=1337 \
           --build-arg NODE_ENV=production \
           --build-arg ADMIN_JWT_SECRET=${{ secrets.ADMIN_JWT_SECRET }} \
@@ -61,7 +60,6 @@ jobs:
             docker run -d \
             -e DATABASE_CLIENT=sqlite \
             -e DATABASE_FILENAME=.tmp/data.db \
-            -e HOST=0.0.0.0 \
             -e PORT=1337 \
             -e ADMIN_JWT_SECRET=${{ secrets.ADMIN_JWT_SECRET }} \
             -e API_TOKEN_SALT=${{ secrets.API_TOKEN_SALT }} \
