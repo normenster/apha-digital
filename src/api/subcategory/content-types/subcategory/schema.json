@@ -1,10 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "words",
+  "collectionName": "subcategories",
   "info": {
-    "singularName": "word",
-    "pluralName": "words",
-    "displayName": "Wort",
+    "singularName": "subcategory",
+    "pluralName": "subcategories",
+    "displayName": "Subkategorie",
     "description": ""
   },
   "options": {
@@ -12,24 +12,19 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "title": {
+    "name": {
       "type": "string"
     },
-    "level": {
-      "type": "component",
-      "repeatable": false,
-      "component": "components.kategorie"
-    },
-    "kategorie": {
+    "category": {
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::category.category"
     },
-    "subkategories": {
+    "worts": {
       "type": "relation",
       "relation": "manyToMany",
-      "target": "api::subcategory.subcategory",
-      "mappedBy": "worts"
+      "target": "api::word.word",
+      "inversedBy": "subkategories"
     }
   }
 }

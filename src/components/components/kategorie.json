@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_components_kategories",
+  "info": {
+    "displayName": "Schwierigkeit",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "enumeration",
+      "enum": [
+        "Hoch bis Niedrig",
+        "Hoch ",
+        "Niedrig"
+      ]
+    }
+  }
+}
