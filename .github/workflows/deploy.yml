@@ -58,6 +58,7 @@ jobs:
             docker pull taktart/strapi-arm:latest
             docker stop strapi || true
             docker rm strapi || true
+            docker volume create strapi-sqlite-data
             docker run -d \
             -e DATABASE_CLIENT=sqlite \
             -e DATABASE_FILENAME=.tmp/data.db \
@@ -70,6 +71,7 @@ jobs:
             -e TRANSFER_TOKEN_SALT=${{ secrets.TRANSFER_TOKEN_SALT }} \
             -e ADMIN_JWT_SECRET=${{ secrets.ADMIN_JWT_SECRET }} \
             -e NODE_ENV=production \
+            -v strapi-sqlite-data:/srv/app/.tmp \
             -p 1337:1337 \
             --name strapi \
             taktart/strapi-arm:latest
