@@ -19,6 +19,12 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::category.category"
+    },
+    "wort": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::word.word",
+      "inversedBy": "kategorie"
     }
   }
 }

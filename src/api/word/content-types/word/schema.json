@@ -15,21 +15,25 @@
     "title": {
       "type": "string"
     },
-    "level": {
-      "type": "component",
-      "repeatable": false,
-      "component": "components.kategorie"
-    },
     "kategorie": {
       "type": "relation",
       "relation": "oneToOne",
-      "target": "api::category.category"
+      "target": "api::category.category",
+      "mappedBy": "wort"
     },
     "subkategories": {
       "type": "relation",
       "relation": "manyToMany",
       "target": "api::subcategory.subcategory",
       "mappedBy": "worts"
+    },
+    "Silbenanzahl": {
+      "type": "enumeration",
+      "enum": [
+        "a) 1-2",
+        "b) 3-4",
+        "c) 5-n"
+      ]
     }
   }
 }

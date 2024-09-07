@@ -1782,7 +1782,7 @@
     semver "7.5.4"
     umzug "3.2.1"
 
-"@strapi/design-system@1.19.0":
+"@strapi/design-system@1.19.0", "@strapi/design-system@^1.6.3":
   version "1.19.0"
   resolved "https://registry.yarnpkg.com/@strapi/design-system/-/design-system-1.19.0.tgz#1b0ca923c22f167baa6d35663e7f47c971df474c"
   integrity sha512-kEQNaRztIcr6I5Zh6mxtE/Nmkk1mylCS5s56ySKDdqOjWZw2BCbS72/J9k6r1RF1TLIDSXJN9r5dHR0ZKtWvBQ==
@@ -1833,7 +1833,7 @@
     plop "2.7.6"
     pluralize "8.0.0"
 
-"@strapi/helper-plugin@4.25.9":
+"@strapi/helper-plugin@4.25.9", "@strapi/helper-plugin@^4.6.0":
   version "4.25.9"
   resolved "https://registry.yarnpkg.com/@strapi/helper-plugin/-/helper-plugin-4.25.9.tgz#34ff9dfcab19b62c2330e9fa917af4f40e5ffb8a"
   integrity sha512-SFHVvKTf/7TNenDa6/6aafMvYyUKWWos+rjwL8qHqG975we9IZIjiQHYytJY5ZzYYAnL7vsT86RKmTA96Kf+bQ==
@@ -1849,7 +1849,7 @@
     react-query "3.39.3"
     react-select "5.7.0"
 
-"@strapi/icons@1.19.0":
+"@strapi/icons@1.19.0", "@strapi/icons@^1.6.3":
   version "1.19.0"
   resolved "https://registry.yarnpkg.com/@strapi/icons/-/icons-1.19.0.tgz#efa6b553a7de437171512e3549859faa141a145f"
   integrity sha512-jcS7n3Ps+73fYGadxdaD6owazoDJKN1fHSG9dp8RX4RqkP6BfoHOX5j3aodVLmDX57Ksg6gy5JXf9xEml7nMpQ==
@@ -9052,6 +9052,16 @@ statuses@2.0.1, statuses@^2.0.1:
   version "1.5.0"
   resolved "https://registry.yarnpkg.com/statuses/-/statuses-1.5.0.tgz#161c7dac177659fd9811f43771fa99381478628c"
   integrity sha512-OpZ3zP+jT1PI7I8nemJX4AKmAX070ZkYPVWV/AaKTJl+tXCTGyVdC1a4SL8RUQYEwk/f34ZX8UTykN68FwrqAA==
+
+strapi-plugin-categorizer@^2.0.10:
+  version "2.0.10"
+  resolved "https://registry.yarnpkg.com/strapi-plugin-categorizer/-/strapi-plugin-categorizer-2.0.10.tgz#d68d3664fd5877dece98935219743267bfabce9e"
+  integrity sha512-R0Ls0gdbS+Snr02S0N2NMd7lN/TyAnYSqlwKrM+9isczewZ8C56ZoRFH3toiGoHMeEATLNzt2w4sPBPnCBWMDQ==
+  dependencies:
+    "@strapi/design-system" "^1.6.3"
+    "@strapi/helper-plugin" "^4.6.0"
+    "@strapi/icons" "^1.6.3"
+    prop-types "^15.7.2"
 
 stream-chain@2.2.5, stream-chain@^2.2.5:
   version "2.2.5"
