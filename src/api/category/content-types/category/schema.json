@@ -15,10 +15,10 @@
     "name": {
       "type": "string"
     },
-    "category": {
+    "subkategories": {
       "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::category.category"
+      "relation": "oneToMany",
+      "target": "api::subcategory.subcategory"
     },
     "wort": {
       "type": "relation",

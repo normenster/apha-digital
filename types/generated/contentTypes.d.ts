@@ -801,10 +801,10 @@ export interface ApiCategoryCategory extends Schema.CollectionType {
   };
   attributes: {
     name: Attribute.String;
-    category: Attribute.Relation<
+    subkategories: Attribute.Relation<
       'api::category.category',
-      'oneToOne',
-      'api::category.category'
+      'oneToMany',
+      'api::subcategory.subcategory'
     >;
     wort: Attribute.Relation<
       'api::category.category',
@@ -842,7 +842,7 @@ export interface ApiSubcategorySubcategory extends Schema.CollectionType {
   };
   attributes: {
     name: Attribute.String;
-    category: Attribute.Relation<
+    kategorie: Attribute.Relation<
       'api::subcategory.subcategory',
       'oneToOne',
       'api::category.category'
@@ -893,7 +893,13 @@ export interface ApiWordWord extends Schema.CollectionType {
       'manyToMany',
       'api::subcategory.subcategory'
     >;
-    Silbenanzahl: Attribute.Enumeration<['a) 1-2', 'b) 3-4', 'c) 5-n']>;
+    silbenanzahl: Attribute.Enumeration<['a) 1-2', 'b) 3-4', 'c) 5-n']> &
+      Attribute.Required;
+    frequency: Attribute.Enumeration<['hoch', 'niedrig', 'hoch bis niedrig']> &
+      Attribute.Required &
+      Attribute.DefaultTo<'hoch'>;
+    type: Attribute.Enumeration<['nomen', 'verb', 'adjektiv']> &
+      Attribute.DefaultTo<'nomen'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

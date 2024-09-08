@@ -27,13 +27,34 @@
       "target": "api::subcategory.subcategory",
       "mappedBy": "worts"
     },
-    "Silbenanzahl": {
+    "silbenanzahl": {
       "type": "enumeration",
       "enum": [
         "a) 1-2",
         "b) 3-4",
         "c) 5-n"
-      ]
+      ],
+      "required": true
+    },
+    "frequency": {
+      "type": "enumeration",
+      "enum": [
+        "hoch",
+        "niedrig",
+        "hoch bis niedrig"
+      ],
+      "required": true,
+      "default": "hoch"
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "nomen",
+        "verb",
+        "adjektiv"
+      ],
+      "default": "nomen",
+      "required": false
     }
   }
 }
