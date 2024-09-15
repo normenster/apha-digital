@@ -811,6 +811,7 @@ export interface ApiCategoryCategory extends Schema.CollectionType {
       'oneToOne',
       'api::word.word'
     >;
+    image: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -852,6 +853,7 @@ export interface ApiSubcategorySubcategory extends Schema.CollectionType {
       'manyToMany',
       'api::word.word'
     >;
+    image: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -900,6 +902,7 @@ export interface ApiWordWord extends Schema.CollectionType {
       Attribute.DefaultTo<'hoch'>;
     type: Attribute.Enumeration<['nomen', 'verb', 'adjektiv']> &
       Attribute.DefaultTo<'nomen'>;
+    image: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
