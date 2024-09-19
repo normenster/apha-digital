@@ -903,7 +903,16 @@ export interface ApiWordWord extends Schema.CollectionType {
     type: Attribute.Enumeration<['nomen', 'verb', 'adjektiv']> &
       Attribute.DefaultTo<'nomen'>;
     image: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
-    sound: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    wordAudio: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    sentenceAudio: Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    >;
+    sentence: Attribute.String;
+    wordID: Attribute.String;
+    semantic: Attribute.Component<'components.wort-audio-erklaerung'>;
+    artikel: Attribute.Component<'components.select-audio'>;
+    anlaut: Attribute.Component<'components.select-audio'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

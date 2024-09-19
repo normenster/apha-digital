@@ -1,0 +1,27 @@
+{
+  "collectionName": "components_components_select_audios",
+  "info": {
+    "displayName": "Select + Audio",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "enumeration",
+      "enum": [
+        "ein",
+        "eine"
+      ]
+    },
+    "media": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}

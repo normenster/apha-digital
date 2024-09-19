@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_components_wort_audio_erklaerungs",
+  "info": {
+    "displayName": "Wort + Audio Erklärung"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "media": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}

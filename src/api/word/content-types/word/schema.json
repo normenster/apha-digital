@@ -67,15 +67,48 @@
         "audios"
       ]
     },
-    "sound": {
+    "wordAudio": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
+      ]
+    },
+    "sentenceAudio": {
       "type": "media",
-      "multiple": false
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "sentence": {
+      "type": "string"
+    },
+    "wordID": {
+      "type": "string"
+    },
+    "semantic": {
+      "type": "component",
+      "repeatable": false,
+      "component": "components.wort-audio-erklaerung"
+    },
+    "artikel": {
+      "type": "component",
+      "repeatable": false,
+      "component": "components.select-audio"
+    },
+    "anlaut": {
+      "type": "component",
+      "repeatable": false,
+      "component": "components.select-audio"
     }
   }
 }
