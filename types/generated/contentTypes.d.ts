@@ -903,6 +903,7 @@ export interface ApiWordWord extends Schema.CollectionType {
     type: Attribute.Enumeration<['nomen', 'verb', 'adjektiv']> &
       Attribute.DefaultTo<'nomen'>;
     image: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    sound: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
