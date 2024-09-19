@@ -1,6 +1,6 @@
 // ./src/middlewares/flatten-response.js
 
-module.exports = (config, { strapi }) => {
+module.exports = (config) => {
   return async (ctx, next) => {
     // Call the next middleware or controller logic
     await next();
