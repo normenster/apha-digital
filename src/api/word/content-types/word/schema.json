@@ -15,12 +15,6 @@
     "title": {
       "type": "string"
     },
-    "kategorie": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::category.category",
-      "mappedBy": "wort"
-    },
     "subkategories": {
       "type": "relation",
       "relation": "manyToMany",
@@ -109,6 +103,12 @@
       "type": "component",
       "repeatable": false,
       "component": "components.select-audio"
+    },
+    "kategorie": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::category.category",
+      "inversedBy": "worts"
     }
   }
 }

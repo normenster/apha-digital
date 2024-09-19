@@ -806,9 +806,9 @@ export interface ApiCategoryCategory extends Schema.CollectionType {
       'oneToMany',
       'api::subcategory.subcategory'
     >;
-    wort: Attribute.Relation<
+    worts: Attribute.Relation<
       'api::category.category',
-      'oneToOne',
+      'oneToMany',
       'api::word.word'
     >;
     image: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
@@ -885,11 +885,6 @@ export interface ApiWordWord extends Schema.CollectionType {
   };
   attributes: {
     title: Attribute.String;
-    kategorie: Attribute.Relation<
-      'api::word.word',
-      'oneToOne',
-      'api::category.category'
-    >;
     subkategories: Attribute.Relation<
       'api::word.word',
       'manyToMany',
@@ -915,6 +910,11 @@ export interface ApiWordWord extends Schema.CollectionType {
     semantic: Attribute.Component<'components.wort-audio-erklaerung'>;
     artikel: Attribute.Component<'components.select-audio'>;
     anlaut: Attribute.Component<'components.select-audio'>;
+    kategorie: Attribute.Relation<
+      'api::word.word',
+      'manyToOne',
+      'api::category.category'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

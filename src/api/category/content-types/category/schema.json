@@ -20,21 +20,22 @@
       "relation": "oneToMany",
       "target": "api::subcategory.subcategory"
     },
-    "wort": {
+    "worts": {
       "type": "relation",
-      "relation": "oneToOne",
+      "relation": "oneToMany",
       "target": "api::word.word",
-      "inversedBy": "kategorie"
+      "mappedBy": "kategorie"
     },
     "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     }
   }
 }
