@@ -895,7 +895,9 @@ export interface ApiWordWord extends Schema.CollectionType {
       'manyToMany',
       'api::subcategory.subcategory'
     >;
-    silbenanzahl: Attribute.Enumeration<['a) 1-2', 'b) 3-4', 'c) 5-n']> &
+    silbenanzahl: Attribute.Enumeration<
+      ['eins-zwei', 'drei-vier', 'f\u00FCnf-n']
+    > &
       Attribute.Required;
     frequency: Attribute.Enumeration<['hoch', 'niedrig', 'hoch bis niedrig']> &
       Attribute.Required &
