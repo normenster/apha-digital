@@ -830,6 +830,43 @@ export interface ApiCategoryCategory extends Schema.CollectionType {
   };
 }
 
+export interface ApiFeedbackFeedback extends Schema.SingleType {
+  collectionName: 'feedbacks';
+  info: {
+    singularName: 'feedback';
+    pluralName: 'feedbacks';
+    displayName: 'Feedback';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    intro: Attribute.String;
+    introLast: Attribute.String;
+    feedback1: Attribute.Text;
+    feedback2: Attribute.Text;
+    anlautHelp: Attribute.Text;
+    feedbackSemantic: Attribute.Text;
+    feedbackPhonetic: Attribute.Text;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::feedback.feedback',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::feedback.feedback',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiSubcategorySubcategory extends Schema.CollectionType {
   collectionName: 'subcategories';
   info: {
@@ -944,6 +981,7 @@ declare module '@strapi/types' {
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'api::category.category': ApiCategoryCategory;
+      'api::feedback.feedback': ApiFeedbackFeedback;
       'api::subcategory.subcategory': ApiSubcategorySubcategory;
       'api::word.word': ApiWordWord;
     }
