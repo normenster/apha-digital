@@ -830,6 +830,38 @@ export interface ApiCategoryCategory extends Schema.CollectionType {
   };
 }
 
+export interface ApiDescriptionDescription extends Schema.CollectionType {
+  collectionName: 'descriptions';
+  info: {
+    singularName: 'description';
+    pluralName: 'descriptions';
+    displayName: 'Artikel und Anlaute';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String;
+    audio: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::description.description',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::description.description',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiFeedbackFeedback extends Schema.SingleType {
   collectionName: 'feedbacks';
   info: {
@@ -945,12 +977,20 @@ export interface ApiWordWord extends Schema.CollectionType {
     sentence: Attribute.String;
     wordID: Attribute.String;
     semantic: Attribute.Component<'components.wort-audio-erklaerung'>;
-    artikel: Attribute.Component<'components.select-audio'>;
-    anlaut: Attribute.Component<'components.select-audio'>;
     kategorie: Attribute.Relation<
       'api::word.word',
       'manyToOne',
       'api::category.category'
+    >;
+    anlaut: Attribute.Relation<
+      'api::word.word',
+      'oneToOne',
+      'api::description.description'
+    >;
+    artikel: Attribute.Relation<
+      'api::word.word',
+      'oneToOne',
+      'api::description.description'
     >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
@@ -981,6 +1021,7 @@ declare module '@strapi/types' {
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'api::category.category': ApiCategoryCategory;
+      'api::description.description': ApiDescriptionDescription;
       'api::feedback.feedback': ApiFeedbackFeedback;
       'api::subcategory.subcategory': ApiSubcategorySubcategory;
       'api::word.word': ApiWordWord;

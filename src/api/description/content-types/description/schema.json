@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "descriptions",
+  "info": {
+    "singularName": "description",
+    "pluralName": "descriptions",
+    "displayName": "Artikel und Anlaute",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "audio": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    }
+  }
+}

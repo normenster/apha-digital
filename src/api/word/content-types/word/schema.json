@@ -94,21 +94,21 @@
       "repeatable": false,
       "component": "components.wort-audio-erklaerung"
     },
-    "artikel": {
-      "type": "component",
-      "repeatable": false,
-      "component": "components.select-audio"
-    },
-    "anlaut": {
-      "type": "component",
-      "repeatable": false,
-      "component": "components.select-audio"
-    },
     "kategorie": {
       "type": "relation",
       "relation": "manyToOne",
       "target": "api::category.category",
       "inversedBy": "worts"
+    },
+    "anlaut": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::description.description"
+    },
+    "artikel": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::description.description"
     }
   }
 }
