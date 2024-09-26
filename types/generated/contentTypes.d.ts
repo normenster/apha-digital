@@ -742,7 +742,6 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
   };
   options: {
     draftAndPublish: false;
-    timestamps: true;
   };
   attributes: {
     username: Attribute.String &
@@ -771,6 +770,7 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
       'manyToOne',
       'plugin::users-permissions.role'
     >;
+    tokenUrl: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
@@ -793,7 +793,7 @@ export interface ApiCategoryCategory extends Schema.CollectionType {
   info: {
     singularName: 'category';
     pluralName: 'categories';
-    displayName: 'Kategorie';
+    displayName: 'Themenbereich';
     description: '';
   };
   options: {
@@ -904,7 +904,7 @@ export interface ApiSubcategorySubcategory extends Schema.CollectionType {
   info: {
     singularName: 'subcategory';
     pluralName: 'subcategories';
-    displayName: 'Subkategorie';
+    displayName: 'Unterthema';
     description: '';
   };
   options: {
@@ -946,7 +946,7 @@ export interface ApiWordWord extends Schema.CollectionType {
   info: {
     singularName: 'word';
     pluralName: 'words';
-    displayName: 'Wort';
+    displayName: 'Begriff';
     description: '';
   };
   options: {

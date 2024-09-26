@@ -4,7 +4,7 @@
   "info": {
     "singularName": "subcategory",
     "pluralName": "subcategories",
-    "displayName": "Subkategorie",
+    "displayName": "Unterthema",
     "description": ""
   },
   "options": {
@@ -27,14 +27,15 @@
       "inversedBy": "subkategories"
     },
     "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     }
   }
 }
