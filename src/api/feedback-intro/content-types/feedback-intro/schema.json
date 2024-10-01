@@ -1,0 +1,21 @@
+{
+  "kind": "collectionType",
+  "collectionName": "feedback_intros",
+  "info": {
+    "singularName": "feedback-intro",
+    "pluralName": "feedback-intros",
+    "displayName": "Feedback-Intro",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "description": {
+      "type": "component",
+      "repeatable": false,
+      "component": "components.wort-audio-erklaerung"
+    }
+  }
+}

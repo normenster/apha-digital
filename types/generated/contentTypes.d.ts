@@ -874,13 +874,26 @@ export interface ApiFeedbackFeedback extends Schema.SingleType {
     draftAndPublish: true;
   };
   attributes: {
-    intro: Attribute.String;
-    introLast: Attribute.String;
-    feedback1: Attribute.Text;
-    feedback2: Attribute.Text;
-    anlautHelp: Attribute.Text;
-    feedbackSemantic: Attribute.Text;
-    feedbackPhonetic: Attribute.Text;
+    feedbackIntroSuccess: Attribute.Component<
+      'components.wort-audio-erklaerung',
+      true
+    >;
+    feedbackBetweenLessons: Attribute.Component<
+      'components.wort-audio-erklaerung',
+      true
+    >;
+    feedBackEndLesson: Attribute.Component<
+      'components.wort-audio-erklaerung',
+      true
+    >;
+    feedbackEndSession: Attribute.Component<
+      'components.wort-audio-erklaerung',
+      true
+    >;
+    feedbackBeforeEndLesson: Attribute.Component<
+      'components.wort-audio-erklaerung',
+      true
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -892,6 +905,79 @@ export interface ApiFeedbackFeedback extends Schema.SingleType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::feedback.feedback',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiFeedbackErrorFeedbackError extends Schema.SingleType {
+  collectionName: 'feedback_errors';
+  info: {
+    singularName: 'feedback-error';
+    pluralName: 'feedback-errors';
+    displayName: 'Feedback Fehler';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    feedbackErrorIntro: Attribute.Component<
+      'components.wort-audio-erklaerung',
+      true
+    >;
+    feedbackSecondError: Attribute.Component<
+      'components.wort-audio-erklaerung',
+      true
+    >;
+    feedbackThirdError: Attribute.Component<
+      'components.wort-audio-erklaerung',
+      true
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::feedback-error.feedback-error',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::feedback-error.feedback-error',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiFeedbackIntroFeedbackIntro extends Schema.CollectionType {
+  collectionName: 'feedback_intros';
+  info: {
+    singularName: 'feedback-intro';
+    pluralName: 'feedback-intros';
+    displayName: 'Feedback-Intro';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    description: Attribute.Component<'components.wort-audio-erklaerung'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::feedback-intro.feedback-intro',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::feedback-intro.feedback-intro',
       'oneToOne',
       'admin::user'
     > &
@@ -1023,6 +1109,8 @@ declare module '@strapi/types' {
       'api::category.category': ApiCategoryCategory;
       'api::description.description': ApiDescriptionDescription;
       'api::feedback.feedback': ApiFeedbackFeedback;
+      'api::feedback-error.feedback-error': ApiFeedbackErrorFeedbackError;
+      'api::feedback-intro.feedback-intro': ApiFeedbackIntroFeedbackIntro;
       'api::subcategory.subcategory': ApiSubcategorySubcategory;
       'api::word.word': ApiWordWord;
     }

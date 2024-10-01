@@ -1,0 +1,31 @@
+{
+  "kind": "singleType",
+  "collectionName": "feedback_errors",
+  "info": {
+    "singularName": "feedback-error",
+    "pluralName": "feedback-errors",
+    "displayName": "Feedback Fehler",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "feedbackErrorIntro": {
+      "type": "component",
+      "repeatable": true,
+      "component": "components.wort-audio-erklaerung"
+    },
+    "feedbackSecondError": {
+      "type": "component",
+      "repeatable": true,
+      "component": "components.wort-audio-erklaerung"
+    },
+    "feedbackThirdError": {
+      "type": "component",
+      "repeatable": true,
+      "component": "components.wort-audio-erklaerung"
+    }
+  }
+}

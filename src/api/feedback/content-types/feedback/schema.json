@@ -12,26 +12,30 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "intro": {
-      "type": "string"
+    "feedbackIntroSuccess": {
+      "type": "component",
+      "repeatable": true,
+      "component": "components.wort-audio-erklaerung"
     },
-    "introLast": {
-      "type": "string"
+    "feedbackBetweenLessons": {
+      "type": "component",
+      "repeatable": true,
+      "component": "components.wort-audio-erklaerung"
     },
-    "feedback1": {
-      "type": "text"
+    "feedBackEndLesson": {
+      "type": "component",
+      "repeatable": true,
+      "component": "components.wort-audio-erklaerung"
     },
-    "feedback2": {
-      "type": "text"
+    "feedbackEndSession": {
+      "type": "component",
+      "repeatable": true,
+      "component": "components.wort-audio-erklaerung"
     },
-    "anlautHelp": {
-      "type": "text"
-    },
-    "feedbackSemantic": {
-      "type": "text"
-    },
-    "feedbackPhonetic": {
-      "type": "text"
+    "feedbackBeforeEndLesson": {
+      "type": "component",
+      "repeatable": true,
+      "component": "components.wort-audio-erklaerung"
     }
   }
 }
