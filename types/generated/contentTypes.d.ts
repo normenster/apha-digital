@@ -936,6 +936,15 @@ export interface ApiFeedbackErrorFeedbackError extends Schema.SingleType {
       'components.wort-audio-erklaerung',
       true
     >;
+    feedbackHear: Attribute.Component<'components.wort-audio-erklaerung', true>;
+    feedbackSemantic: Attribute.Component<
+      'components.wort-audio-erklaerung',
+      true
+    >;
+    feedbackPhonetic: Attribute.Component<
+      'components.wort-audio-erklaerung',
+      true
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -947,37 +956,6 @@ export interface ApiFeedbackErrorFeedbackError extends Schema.SingleType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::feedback-error.feedback-error',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
-export interface ApiFeedbackIntroFeedbackIntro extends Schema.CollectionType {
-  collectionName: 'feedback_intros';
-  info: {
-    singularName: 'feedback-intro';
-    pluralName: 'feedback-intros';
-    displayName: 'Feedback-Intro';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    description: Attribute.Component<'components.wort-audio-erklaerung'>;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::feedback-intro.feedback-intro',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::feedback-intro.feedback-intro',
       'oneToOne',
       'admin::user'
     > &
@@ -1110,7 +1088,6 @@ declare module '@strapi/types' {
       'api::description.description': ApiDescriptionDescription;
       'api::feedback.feedback': ApiFeedbackFeedback;
       'api::feedback-error.feedback-error': ApiFeedbackErrorFeedbackError;
-      'api::feedback-intro.feedback-intro': ApiFeedbackIntroFeedbackIntro;
       'api::subcategory.subcategory': ApiSubcategorySubcategory;
       'api::word.word': ApiWordWord;
     }

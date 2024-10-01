@@ -26,6 +26,21 @@
       "type": "component",
       "repeatable": true,
       "component": "components.wort-audio-erklaerung"
+    },
+    "feedbackHear": {
+      "type": "component",
+      "repeatable": true,
+      "component": "components.wort-audio-erklaerung"
+    },
+    "feedbackSemantic": {
+      "type": "component",
+      "repeatable": true,
+      "component": "components.wort-audio-erklaerung"
+    },
+    "feedbackPhonetic": {
+      "type": "component",
+      "repeatable": true,
+      "component": "components.wort-audio-erklaerung"
     }
   }
 }
