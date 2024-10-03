@@ -36,6 +36,11 @@
       "type": "component",
       "repeatable": true,
       "component": "components.wort-audio-erklaerung"
+    },
+    "feedbackBreak": {
+      "type": "component",
+      "repeatable": true,
+      "component": "components.wort-audio-erklaerung"
     }
   }
 }

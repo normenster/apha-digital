@@ -894,6 +894,10 @@ export interface ApiFeedbackFeedback extends Schema.SingleType {
       'components.wort-audio-erklaerung',
       true
     >;
+    feedbackBreak: Attribute.Component<
+      'components.wort-audio-erklaerung',
+      true
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
