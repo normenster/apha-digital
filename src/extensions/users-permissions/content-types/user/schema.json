@@ -67,6 +67,9 @@
     },
     "tokenUrl": {
       "type": "string"
+    },
+    "analysis": {
+      "type": "json"
     }
   }
 }

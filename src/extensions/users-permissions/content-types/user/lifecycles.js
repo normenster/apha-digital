@@ -55,7 +55,7 @@ const updateApiToken = async (event) => {
     );
 
     // Define the base URL where the token should be appended
-    const baseUrl = `${BASE_URL}}/verify?token=`; // Replace with your actual base URL
+    const baseUrl = `${BASE_URL}/verify?token=`; // Replace with your actual base URL
 
     // Merge the token into the URL
     const tokenUrl = `${baseUrl}${token}`;
