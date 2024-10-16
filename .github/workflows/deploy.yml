@@ -55,6 +55,7 @@ jobs:
           username: ${{ secrets.HETZNER_USER }}
           key: ${{ secrets.HETZNER_SSH_KEY }}
           script: |
+            docker system prune -af
             docker pull taktart/strapi-arm:latest
             docker stop strapi || true
             docker rm strapi || true
