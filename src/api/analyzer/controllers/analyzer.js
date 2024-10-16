@@ -1,6 +1,7 @@
 const axios = require('axios');
 const FormData = require('form-data');
 const fs = require('fs');
+const path = require('path');
 
 module.exports = {
   async forwardData(ctx) {
@@ -11,14 +12,25 @@ module.exports = {
       const queryParams = ctx.query;
       const formData = new FormData();
       const fileUrl = fs.createReadStream(ctx.request.files.audio_file.path);
-      if (ctx.request.files.audio_file)
-        formData.append('audio_file', fileUrl, {contentType: 'audio/wav'});
 
-      const responseNow = await axios.post('http://aphadigital.th-wildau.de:9000/asr/pipeline', formData);
+      const uploadPath = path.join(__dirname, '../../../../public/uploads', ctx.request.files.audio_file.name);
+
+      // const buffer = Buffer.from(ctx.request.files.audio_file.data);
+      fs.copyFileSync(ctx.request.files.audio_file.path, uploadPath);
+      formData.append('audio_file', fs.createReadStream(uploadPath), {contentType: 'audio/wav'});
+
+      const responseNow = await axios.post('http://aphadigital.th-wildau.de:9000/asr/pipeline', formData, {
+        headers: {
+          ...formData.getHeaders(), // Necessary for form data headers
+        },
+      });
       console.log("#data", responseNow.data);
+      fs.unlink(uploadPath, () => {});
+      fs.unlink(ctx.request.files.audio_file.path, () => {});
+
       ctx.send({
         message: 'Data forwarded successfully finally',
-        file:ctx.request.files.audio_file,
+        file: ctx.request.files.audio_file,
         data: responseNow.data
       });
 
