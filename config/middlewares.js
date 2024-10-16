@@ -5,7 +5,19 @@ module.exports = [
   'strapi::cors',
   'strapi::poweredBy',
   'strapi::query',
-  'strapi::body',
+  {
+    name: 'strapi::body',
+    config: {
+      formLimit: '100mb',  // Increase size limits if necessary
+      jsonLimit: '100mb',
+      textLimit: '100mb',
+      enableTypes: ['json', 'form', 'text', 'raw'],  // Enable raw body parsing for blobs
+      extendTypes: {
+        text: ['application/octet-stream'],  // Allow binary blobs
+      },
+      parsedMethods: ['POST', 'PUT', 'PATCH', 'DELETE'],
+    },
+  },
   'strapi::session',
   'strapi::favicon',
   'strapi::public'

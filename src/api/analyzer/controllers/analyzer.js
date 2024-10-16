@@ -1,5 +1,6 @@
 const axios = require('axios');
 const FormData = require('form-data');
+const fs = require('fs');
 
 module.exports = {
   async forwardData(ctx) {
@@ -8,28 +9,21 @@ module.exports = {
       // Capture the data sent to Strapi's endpoint
       const receivedData = ctx.request.body;
       const queryParams = ctx.query;
-      ctx.send({
-        message: 'Data received', response: receivedData
-      });
-
-      return false;
-
-      const {audio_file} = ctx.request.files;
-
-      // Create a new FormData object to forward the file
+      console.log("#files", ctx.request.files);
       const formData = new FormData();
-      formData.append('audio_file', fs.createReadStream(file.path), file.name);
+      const fileUrl = fs.createReadStream(ctx.request.files.audio_file.path);
+      if (ctx.request.files.audio_file)
+        formData.append('audio_file', fileUrl, {contentType: 'audio/wav'});
 
-      // Example of forwarding data to another server
-      response = await axios.post('http://aphadigital.th-wildau.de:9000/asr/pipeline', formData, {
-        params: queryParams
-      });
-
-      // Return the response from the other server
+      const responseNow = await axios.post('http://aphadigital.th-wildau.de:9000/asr/pipeline', formData);
+      console.log("#data", responseNow.data);
       ctx.send({
-        message: 'Data forwarded successfully', response: response.data
+        message: 'Data forwarded successfully finally',
+        data: responseNow.data
       });
+
     } catch (error) {
+      console.log(error);
       if (error.response) {
         // If the proxied API responded with an error (4xx, 5xx)
         ctx.status = error.response.status;
