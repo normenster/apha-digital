@@ -9,7 +9,6 @@ module.exports = {
       // Capture the data sent to Strapi's endpoint
       const receivedData = ctx.request.body;
       const queryParams = ctx.query;
-      console.log("#files", ctx.request.files);
       const formData = new FormData();
       const fileUrl = fs.createReadStream(ctx.request.files.audio_file.path);
       if (ctx.request.files.audio_file)
@@ -19,6 +18,7 @@ module.exports = {
       console.log("#data", responseNow.data);
       ctx.send({
         message: 'Data forwarded successfully finally',
+        file:ctx.request.files.audio_file,
         data: responseNow.data
       });
 
