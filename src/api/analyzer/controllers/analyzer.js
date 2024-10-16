@@ -1,4 +1,5 @@
 const axios = require('axios');
+const FormData = require('form-data');
 
 module.exports = {
   async forwardData(ctx) {
@@ -7,14 +8,20 @@ module.exports = {
       // Capture the data sent to Strapi's endpoint
       const receivedData = ctx.request.body;
       const queryParams = ctx.query;
+      ctx.send({
+        message: 'Data received', response: receivedData
+      });
 
+      return false;
+
+      const {audio_file} = ctx.request.files;
+
+      // Create a new FormData object to forward the file
+      const formData = new FormData();
+      formData.append('audio_file', fs.createReadStream(file.path), file.name);
 
       // Example of forwarding data to another server
-      response = await axios.post('http://aphadigital.th-wildau.de:9000/asr/pipeline', receivedData, {
-        headers: {
-          'Content-Type': 'multipart/form-data',
-          'accept': 'application/json',
-        },
+      response = await axios.post('http://aphadigital.th-wildau.de:9000/asr/pipeline', formData, {
         params: queryParams
       });
 
