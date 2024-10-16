@@ -23,7 +23,31 @@ module.exports = {
         message: 'Data forwarded successfully', response: response.data
       });
     } catch (error) {
-      ctx.send({message: 'ERROR With Api', response: response, status: error.status, error: error});
+      if (error.response) {
+        // If the proxied API responded with an error (4xx, 5xx)
+        ctx.status = error.response.status;
+        ctx.send({
+          message: 'Error from the proxied API',
+          status: error.response.status,
+          data: error.response.data,  // Full error message from the proxied API
+          headers: error.response.headers // Optionally include headers from the proxied API
+        });
+      } else if (error.request) {
+        // If no response was received from the proxied API
+        ctx.status = 502; // Bad Gateway error
+        ctx.send({
+          message: 'No response from the proxied API',
+          error: error.message,
+          request: error.request // The request that was sent
+        });
+      } else {
+        // If the request setup failed or another error occurred
+        ctx.status = 500; // Internal Server Error
+        ctx.send({
+          message: 'Request setup failed',
+          error: error.message
+        });
+      }
     }
   }
 };
