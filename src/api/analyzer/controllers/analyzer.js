@@ -9,7 +9,13 @@ module.exports = {
 
 
       // Example of forwarding data to another server
-      const response = await axios.post('http://aphadigital.th-wildau.de:9000/asr/pipeline', receivedData, {params: queryParams});
+      const response = await axios.post('http://aphadigital.th-wildau.de:9000/asr/pipeline', receivedData, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+          'accept': 'application/json',
+        },
+        params: queryParams
+      });
 
       // Return the response from the other server
       ctx.send({
