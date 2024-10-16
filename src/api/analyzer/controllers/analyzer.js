@@ -22,9 +22,7 @@ module.exports = {
         message: 'Data forwarded successfully', response: response.data
       });
     } catch (error) {
-
-      console.log("#error", error);
-      ctx.throw(500, error.message);
+      ctx.send({message: 'ERROR With Api', status: error.status, error: error});
     }
   }
 };
