@@ -20,13 +20,16 @@ module.exports = {
       formData.append('audio_file', fs.createReadStream(uploadPath), {contentType: 'audio/wav'});
 
       const responseNow = await axios.post('http://aphadigital.th-wildau.de:9000/asr/pipeline', formData, {
+        params: queryParams,
         headers: {
           ...formData.getHeaders(), // Necessary for form data headers
         },
       });
       console.log("#data", responseNow.data);
-      fs.unlink(uploadPath, () => {});
-      fs.unlink(ctx.request.files.audio_file.path, () => {});
+      fs.unlink(uploadPath, () => {
+      });
+      fs.unlink(ctx.request.files.audio_file.path, () => {
+      });
 
       ctx.send({
         message: 'Data forwarded successfully finally',
